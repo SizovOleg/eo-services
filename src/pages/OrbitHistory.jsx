@@ -147,7 +147,7 @@ export default function OrbitHistory() {
     if (q.length < 2) { setSearchResults([]); return }
     setSearching(true)
     try {
-      const r = await fetch(`/eo_services/api/spacetrack/search?q=${encodeURIComponent(q)}`)
+      const r = await fetch(`/api/spacetrack/search?q=${encodeURIComponent(q)}`)
       if (r.ok) {
         const data = await r.json()
         setSearchResults(data)
@@ -182,7 +182,7 @@ export default function OrbitHistory() {
 
       // 1. Try Space-Track proxy (full history)
       try {
-        const r = await fetch(`/eo_services/api/spacetrack/tle/${noradId}`)
+        const r = await fetch(`/api/spacetrack/tle/${noradId}`)
         if (r.ok) {
           const data = await r.json()
           const l = data.tle.trim().split('\n').map(s => s.trim()).filter(Boolean)

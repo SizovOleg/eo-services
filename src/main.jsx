@@ -5,7 +5,7 @@ import App from './App'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter basename="/eo_services">
+  <BrowserRouter >
     <App />
   </BrowserRouter>
 )
