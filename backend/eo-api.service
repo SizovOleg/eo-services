@@ -1,0 +1,15 @@
+[Unit]
+Description=EO Services API
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/opt/eo-services-api
+ExecStart=/opt/eo-services-api/venv/bin/uvicorn main:app --host 127.0.0.1 --port 8083
+Restart=always
+RestartSec=5
+EnvironmentFile=/opt/eo-services-api/.env
+
+[Install]
+WantedBy=multi-user.target
